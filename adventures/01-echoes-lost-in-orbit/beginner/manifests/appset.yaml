@@ -13,6 +13,7 @@ spec:
   template:
     metadata:
       name: 'echo-server-{{path.basename}}'
+      namespace: 'echo-{{path.basename}}'
       labels:
         app.kubernetes.io/managed-by: argocd
     spec:
