@@ -23,7 +23,7 @@ spec:
         path: adventures/01-echoes-lost-in-orbit/beginner/manifests/overlays/{{path.basename}}
       destination:
         server: https://kubernetes.default.svc
-        namespace: echo
+        namespace: 'echo-{{path.basename}}'
       syncPolicy:
         automated: {}
         syncOptions:
