@@ -22,7 +22,7 @@ spec:
               pod=~"echo-server-.*"
             }[1m])) or vector(0)
     - name: ready-containers
-      successCondition: result[0] >= 1
+      successCondition: result[0] == {{args.replicas}}
       failureLimit: 0
       inconclusiveLimit: 0
       consecutiveErrorLimit: 0
