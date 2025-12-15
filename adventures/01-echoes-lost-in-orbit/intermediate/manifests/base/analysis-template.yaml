@@ -7,7 +7,7 @@ spec:
     - name: namespace
   metrics:
     - name: container-restarts
-      successCondition: result[0] > 0
+      successCondition: result[0] == 0
       failureLimit: 0
       inconclusiveLimit: 0
       consecutiveErrorLimit: 0
@@ -31,4 +31,4 @@ spec:
         prometheus:
           address: http://prometheus-server.prometheus.svc.cluster.local
           query: |
-            kube_pod_container_status_ready{namespace="echo-staging", pod=~"echo-server-.*"}
+            kube_pod_container_status_ready{namespace="{{args.namespace}}", pod=~"echo-server-.*"}
