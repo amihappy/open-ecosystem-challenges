@@ -7,7 +7,13 @@ metadata:
 data:
   collector-config.yaml: |
     receivers:
-
+      jaeger:
+        protocols:
+          grpc:
+      jaeger/withendpoint:
+        protocols:
+          grpc:
+            endpoint: jaeger-collector.jaeger.svc.cluster.local:14250
     connectors:
       spanmetrics:
         dimensions:
